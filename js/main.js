@@ -1,25 +1,13 @@
-let binaryInput = document.querySelector('binary');
-let entryForm = document.querySelector('form_submission');
+document.getElementById("submitButton").addEventListener("click", checkBinary, false);
 
-entryForm.noValidate = true;
-// entryForm.addEventListener("submit", handler,false);
-
-binaryInput.addEventListener('input', () => {
-  binaryInput.setCustomValidity('');
-  binaryInput.checkValidity();
-});
-
-binaryInput.addEventListener('invalid', () => {
-  if(binaryInput.value === '') {
-    binaryInput.setCustomValidity('Enter a binary number!');
+function checkBinary() {
+  let inputValue = document.getElementById('binary').value;
+  let textPattern = /\b[01]+\b/;
+  let displayText;
+  if (inputValue === "" || inputValue.length > 8 || textPattern.test(inputValue) === false) {
+    displayText = "Input not valid";
   } else {
-    binaryInput.setCustomValidity('Binary numbers can only contain 0s and 1s');
+    let binaryValue = parseInt(inputValue);
   }
-});
-// function handler(ev) {
-//   displayInput();
-// }
-//
-// function displayInput() {
-//   document.getElementById("decimal_result").innerHTML = document.getElementById("binary").value;
-// }
+  document.getElementById('decimal_result').innerHTML = displayText;
+}
