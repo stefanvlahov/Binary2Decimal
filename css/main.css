@@ -108,7 +108,7 @@ input {
 }
 p, span {
   font: 1em sans-serif;
-  margin: 0 auto;
+  margin: 20px auto;
   width: 400px;
 }
 /* ==========================================================================
