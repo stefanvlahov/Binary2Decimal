@@ -1,13 +1,11 @@
 document.getElementById("submitButton").addEventListener("click", checkInput, false);
 
 function convertToDecimal(inputText) {
-  let base = 1;
-  let decimal = 0;
-  let num = parseInt(inputText);
-  while (num) {
-    let last_digit = num % 10;
-    num = Math.floor(num / 10);
-    decimal += last_digit * base;
+  let base = 1; // 2^0
+  let decimal = 0; // the decimal result
+  let len = inputText.length; // length of input
+  for (let i = len - 1; i >= 0; i--) { // len = 6
+    if (inputText[i] === '1') decimal += base;
     base = base * 2;
   }
   return decimal;
